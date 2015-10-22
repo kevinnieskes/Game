@@ -1,0 +1,17 @@
+﻿<Window x:Class="Game.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1" Height="384" Width="489">
+    <Grid >
+        <TextBox x:Name="SinglePlayerBox" HorizontalAlignment="Left" Height="92" Margin="10,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="461"/>
+        <TextBlock x:Name="YourHP" HorizontalAlignment="Left" Margin="19,23,0,0" TextWrapping="Wrap" Text="Your Health: " VerticalAlignment="Top" Width="97"/>
+        <TextBlock x:Name="EnemyHP" HorizontalAlignment="Left" Margin="325,26,0,0" TextWrapping="Wrap" Text="Enemy Health:" VerticalAlignment="Top" Width="129"/>
+        <Button x:Name="ShootButton" Content="Shoot!" HorizontalAlignment="Left" Margin="19,296,0,0" VerticalAlignment="Top" Width="75" Click="ShootButton_Click"/>
+        <Button x:Name="GrenadeButton" Content="Throw Grenade!" HorizontalAlignment="Left" Margin="108,296,0,0" VerticalAlignment="Top" Width="107" Click="GrenadeButton_Click" />
+        <Button x:Name="HealButton" Content="Heal" HorizontalAlignment="Left" Margin="232,296,0,0" VerticalAlignment="Top" Width="75" Click="HealButton_Click"/>
+        <TextBlock x:Name="YourGrenades" HorizontalAlignment="Left" Margin="19,56,0,0" TextWrapping="Wrap" Text="Grenades:" VerticalAlignment="Top" Width="66"/>
+        <TextBlock x:Name="EnemyGrenades" HorizontalAlignment="Left" Margin="325,56,0,0" TextWrapping="Wrap" Text="Grenades:" VerticalAlignment="Top" Width="66"/>
+        
+        <Button x:Name="NewEnemyButton" Content="Next Enemy" HorizontalAlignment="Left" Margin="325,96,0,0" VerticalAlignment="Top" Width="100" Click="NewEnemyButton_Click" IsEnabled="False"/>
+    </Grid>
+</Window>
