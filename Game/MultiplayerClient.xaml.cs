@@ -18,10 +18,9 @@ using System.Net.Sockets;
 namespace Game
 {
     /// <summary>
-    /// Interaction logic for Window3.xaml
+    /// Interaction logic for MultiplayerClient.xaml
     /// </summary>
-
-    public partial class Window2 : Window
+    public partial class MultiplayerClient : Window
     {
         Battle skirmish;
         int enemiesDefeated;
@@ -29,9 +28,9 @@ namespace Game
         TcpListener server;
         TcpClient client;
         string YourAction;
-        public Window2()
+       
+        public MultiplayerClient()
         {
-
             InitializeComponent();
             skirmish = new Battle();
             UpdateStats();
@@ -47,7 +46,7 @@ namespace Game
 
         private void GrenadeButton_Click(object sender, RoutedEventArgs e)
         {
-            YourAction = "Throw";
+            YourAction = "Grenade";
             TurnButton.IsEnabled = true;
         }
 
@@ -68,26 +67,8 @@ namespace Game
             GrenadeButton.IsEnabled = false;
             HealButton.IsEnabled = false;
             ShootButton.IsEnabled = false;
-            Send(YourAction);
-            int damage = skirmish.DoAction(skirmish.Player1, skirmish.Player2, YourAction);
-            if (damage == 0)
-            {
-                SinglePlayerBox.Text += "You did no damage. \n";
-            }
-            else
-            {
-                SinglePlayerBox.Text += "You did " + ("" + damage) + " damage. \n";
-            }
-            Player1AnimationSelect(YourAction);
-            System.Threading.Thread.Sleep(900);
-            ImageDefault();
-            UpdateStats();
-            if (skirmish.Player1.Health() <= 0)
-            {
-                Victory();
-            }
             string action = Recieve();
-            damage = skirmish.DoAction(skirmish.Player2, skirmish.Player1, action);
+            int damage = skirmish.DoAction(skirmish.Player1, skirmish.Player2, action);
             if (damage == 0)
             {
                 SinglePlayerBox.Text += "You took no damage. \n";
@@ -97,6 +78,24 @@ namespace Game
                 SinglePlayerBox.Text += "You took " + ("" + damage) + " damage. \n";
             }
             Player2AnimationSelect(action);
+            System.Threading.Thread.Sleep(900);
+            ImageDefault();
+            UpdateStats();
+            if (skirmish.Player1.Health() <= 0)
+            {
+                Victory();
+            }
+            Send(YourAction);
+            damage = skirmish.DoAction(skirmish.Player2, skirmish.Player1, YourAction);
+            if (damage == 0)
+            {
+                SinglePlayerBox.Text += "You did no damage. \n";
+            }
+            else
+            {
+                SinglePlayerBox.Text += "You did " + ("" + damage) + " damage. \n";
+            }
+            Player1AnimationSelect(action);
             System.Threading.Thread.Sleep(900);
             ImageDefault();
             UpdateStats();
@@ -114,13 +113,6 @@ namespace Game
 
 
         }
-        //private void DoNextTurn(int player)
-        //{
-        //    ImageDefault();
-        //    GrenadeButton.IsEnabled = false;
-        //    HealButton.IsEnabled = false;
-        //    ShootButton.IsEnabled = false;
-        //}
 
         private void Player1ShootAnimate()
         {
@@ -129,7 +121,7 @@ namespace Game
         private void Player1GrenadeAnimate()
         {
 
-            Player2Image.Source = (new Uri(@"Sprites\greenexplo.Gif", UriKind.Relative));
+            Player2Image.Source = (new Uri(@"Sprites\GreenExplosion.Gif", UriKind.Relative));
         }
 
         private void Player1HealAnimate()
@@ -140,7 +132,7 @@ namespace Game
         private void Player2ShootAnimate()
         {
 
-            Player2Image.Source = (new Uri(@"Sprites\greenshot.Gif", UriKind.Relative));
+            Player2Image.Source = (new Uri(@"Sprites\GreenShoot.Gif", UriKind.Relative));
         }
 
         private void Player2GrenadeAnimate()
@@ -233,37 +225,26 @@ namespace Game
             return action;
         }
 
-        public void Host()
+        public void Join()
         {
-            server = null;
             try
             {
                 Int32 port = 13000;
-                IPAddress localAddr = IPAddress.Any;
-                server = new TcpListener(localAddr, port);
-                server.Start();
-                client = server.AcceptTcpClient();
+                client = new TcpClient("10.2.20.13", port);
                 ConnectionBox.Text = "Connected.";
             }
             catch (SocketException e)
             {
                 Console.WriteLine("SocketException: {0}", e);
             }
-            finally
-            {
-                // Stop listening for new clients.
-                server.Stop();
-            }
         }
 
         private void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
-            ConnectionBox.Text = "Waiting for player connection.";
-            Host();
+            ConnectionBox.Text = "Attempting Connection to Host.";
+            Join();
         }
 
         
     }
 }
-
-

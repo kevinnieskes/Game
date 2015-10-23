@@ -23,30 +23,29 @@ namespace Game
         int enemiesDefeated;
         public Window3()
         {
+            
             InitializeComponent();
             skirmish = new Battle();
             UpdateStats();
-
-        }
-
-        public Window3(string enemy)
-        {
-            InitializeComponent();
-            skirmish = new Battle();
-            enemiesDefeated = 0;
+            ImageDefault();
         }
 
         private void ShootButton_Click(object sender, RoutedEventArgs e)
         {
-            string EnemyHealth =  ("" + skirmish.DoAction(skirmish.Player1, skirmish.Player2, "Shoot"));
+            int damage = skirmish.DoAction(skirmish.Player1, skirmish.Player2, "Shoot");
+            if (damage == 0)
+            {
+                SinglePlayerBox.Text += "Attack Missed! \n";
+                DoEnemyTurn();
+                return;
+            }
             int CurrentHealth = skirmish.Player1.Health();
             Player1ShootAnimate();
             System.Threading.Thread.Sleep(900);
-            Player1Image.Source = (new Uri(@"Sprites\redidle.png", UriKind.Relative));
-            //Player1Image.Source = (new Uri(@"C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\Sprites\redidle.png"));
-            SinglePlayerBox.Text = "You shoot the enemy for " + ("" + skirmish.Player1.shootDam) + " damage. \n" ;
-            EnemyHP.Text = "Enemy Health: " + EnemyHealth;
-            if(Convert.ToInt32(EnemyHealth) <= 0)
+            ImageDefault();
+            SinglePlayerBox.Text += "You shoot the enemy for " + ("" + skirmish.Player1.shootDam) + " damage. \n" ;
+            UpdateStats();
+            if (Convert.ToInt32(skirmish.Player2.Health()) <= 0)
             {
                 Victory();
                 return;
@@ -61,15 +60,19 @@ namespace Game
                 SinglePlayerBox.Text += "Out of grenades! \n";
                 return;
             }
+            int damage = skirmish.DoAction(skirmish.Player1, skirmish.Player2, "Throw");
+            if(damage == 0)
+            {
+                SinglePlayerBox.Text += "Attack Missed! \n";
+                DoEnemyTurn();
+                return;
+            }
             Player1GrenadeAnimate();
             System.Threading.Thread.Sleep(900);
-            Player2Image.Source = (new Uri(@"Sprites\Greenidle.png", UriKind.Relative));
-            //Player1Image.Source = (new Uri(@"C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\Sprites\redidle.png"));
-            string EnemyHealth = ("" + skirmish.DoAction(skirmish.Player1, skirmish.Player2, "Throw"));
-            SinglePlayerBox.Text = "Your grenade hit the enemy for " + ("" + skirmish.Player1.grenadeDam) + " damage. \n";
-            EnemyHP.Text = "Enemy Health: " + EnemyHealth;
-            YourGrenades.Text = "Grenades: " + "" + skirmish.Player1.grenades;
-            if (Convert.ToInt32(EnemyHealth) <= 0)
+            ImageDefault(); 
+            SinglePlayerBox.Text += "Your grenade hit the enemy for " + ("" + damage) + " damage. \n";
+            UpdateStats();
+            if (Convert.ToInt32(skirmish.Player2.Health()) <= 0)
             {
                 Victory();
                 return;
@@ -81,15 +84,20 @@ namespace Game
         {
             Player1HealAnimate();
             SinglePlayerBox.Text = "You healed for " + skirmish.Player1.Heal() + "\n";
-            YourHP.Text = "Your Health: " + skirmish.Player1.Health();
+            UpdateStats();
+            DoEnemyTurn();
+        }
+
+        private void AimButton_Click(object sender, RoutedEventArgs e)
+        {
+            skirmish.Player1.Aim();
+            SinglePlayerBox.Text = "You took aim at the enemy. \n";
             DoEnemyTurn();
         }
 
         private void NewEnemyButton_Click(object sender, RoutedEventArgs e)
         {
             skirmish.Player1.grenades += skirmish.Player2.grenades;
-            skirmish.badGuy = new ComputerEnemy("Medic");
-            YourGrenades.Text = "Grenades: " + "" + skirmish.Player1.grenades;
             skirmish.Player1.shootDam += 5; 
             SinglePlayerBox.Text += "Your skill with your weapon has improved, you now do " + skirmish.Player1.shootDam + " damage per shot. \n";
             SinglePlayerBox.Text += "You healed for " + skirmish.Player1.Heal() + " before the next battle started. \n";
@@ -103,9 +111,7 @@ namespace Game
                 skirmish.badGuy = new ComputerEnemy(3);
                 skirmish.Player2 = new Soldier("");
             }
-            YourHP.Text = "Your Health: " + ("" + skirmish.Player1.Health());
-            EnemyHP.Text = "Enemy Health: " + ("" + skirmish.Player2.Health());
-            EnemyGrenades.Text = "Grenades: " + "" + skirmish.Player2.grenades;
+            UpdateStats();
             GrenadeButton.IsEnabled = true;
             HealButton.IsEnabled = true;
             ShootButton.IsEnabled = true;
@@ -115,24 +121,20 @@ namespace Game
 
         private void DoEnemyTurn()
         {
-            string YourHealth = ("" + skirmish.DoAction(skirmish.Player2, skirmish.Player1, skirmish.badGuy.Fight()));
-            if (skirmish.Player2.checkDam(skirmish.badGuy.ReturnAction()) == 0)
+            int damage = skirmish.DoAction(skirmish.Player2, skirmish.Player1, skirmish.badGuy.Fight());
+            if (damage == 0)
             {
                 SinglePlayerBox.Text += "You took no damage. \n";
             }
             else
             {
-                SinglePlayerBox.Text += "You took " + skirmish.Player2.checkDam(skirmish.badGuy.ReturnAction()) + " damage. \n";
+                SinglePlayerBox.Text += "You took " + ("" + damage) + " damage. \n";
             }
             Player2AnimationSelect(skirmish.badGuy.ReturnAction());
             System.Threading.Thread.Sleep(900);
-            Player2Image.Source = (new Uri(@"Sprites\greenidle.png", UriKind.Relative));
-            //Player2Image.Source = (new Uri(@"C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\Sprites\greenidle.png"));
-            Player1Image.Source = (new Uri(@"Sprites\redidle.png", UriKind.Relative));
-            //Player1Image.Source = (new Uri(@"C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\Sprites\redidle.png"));
-            YourHP.Text = "Your Health: " + YourHealth;
-            EnemyHP.Text = "Enemy Health: " + skirmish.Player2.Health();
-            if (Convert.ToInt32(YourHealth) <= 0)
+            ImageDefault();
+            UpdateStats();
+            if (skirmish.Player1.Health() <= 0)
             {
                 SinglePlayerBox.Text += "You have been defeated by the enemy. \n";
                 GrenadeButton.IsEnabled = false;
@@ -143,44 +145,35 @@ namespace Game
 
         private void Player1ShootAnimate()
         {
-            Player1Image.Source = (new Uri(@"Sprites\RedShoot.Gif", UriKind.Relative));
-            //Player1Image.Source = (new Uri(@"C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\Sprites\RedShoot.Gif"));
+            Player1Image.Source = (new Uri(@"Sprites\RedShot.Gif", UriKind.Relative));
         }
-        //path of exe wpf, library called path, use path.combine
         private void Player1GrenadeAnimate()
         {
 
             Player2Image.Source = (new Uri(@"Sprites\GreenExplosion.Gif", UriKind.Relative));
-            //Player2Image.Source = (new Uri(@"C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\Sprites\GreenExplosion.Gif"));
         }
 
         private void Player1HealAnimate()
         {
-            Player1Image.Source = (new Uri(@"Sprites\redidle.png", UriKind.Relative));
-            //Player1Image.Source = (new Uri(@"C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\Sprites\redidle.png"));
+            ImageDefault();
         }
 
         private void Player2ShootAnimate()
         {
 
-            Player2Image.Source = (new Uri(@"Sprites\GreenShoot.Gif", UriKind.Relative));
-            //Player2Image.Source = (new Uri(@"C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\Sprites\GreenShoot.Gif"));
-            
+            Player2Image.Source = (new Uri(@"Sprites\GreenShoot.Gif", UriKind.Relative));        
         }
 
         private void Player2GrenadeAnimate()
         {
 
-            Player1Image.Source = (new Uri(@"Sprites\RedExplosion.Gif", UriKind.Relative));
-            //Player1Image.Source = (new Uri(@"C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\Sprites\RedExplosion.Gif"));
-            
+            Player1Image.Source = (new Uri(@"Sprites\RedExplosion2.Gif", UriKind.Relative));            
         }
 
         private void Player2HealAnimate()
         {
 
-            Player2Image.Source = (new Uri(@"Sprites\greenidle.png", UriKind.Relative));
-            //Player2Image.Source = (new Uri(@"C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\Sprites\greenidle.png"));
+            ImageDefault();
         }
 
         private void Player2AnimationSelect(string action)
@@ -194,6 +187,10 @@ namespace Game
                 Player2GrenadeAnimate();
             }
             else if(action == "Heal")
+            {
+                Player2HealAnimate();
+            }
+            else if (action == "Aim")
             {
                 Player2HealAnimate();
             }
@@ -215,6 +212,12 @@ namespace Game
             HealButton.IsEnabled = false;
             ShootButton.IsEnabled = false;
             NewEnemyButton.IsEnabled = true;
+        }
+       
+        private void ImageDefault()
+        {
+            Player1Image.Source = (new Uri(@"Sprites\redidle.gif", UriKind.Relative));
+            Player2Image.Source = (new Uri(@"Sprites\greenidle.png", UriKind.Relative));
         }
 
     }

@@ -53,10 +53,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Animation.cs" />
     <Compile Include="ComputerEnemy.cs" />
     <Compile Include="LocalMultiplayer.xaml.cs">
       <DependentUpon>LocalMultiplayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MultiplayerClient.xaml.cs">
+      <DependentUpon>MultiplayerClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Soldier.cs" />
     <Compile Include="SinglePlayer.xaml.cs">
@@ -81,12 +83,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Battle.cs" />
-    <Compile Include="Host.cs" />
-    <Compile Include="Join.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MultiplayerClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SinglePlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,9 +135,6 @@
     <Resource Include="country-platform-preview.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="redidle.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="greenidle.png" />
   </ItemGroup>
   <ItemGroup>
@@ -149,7 +150,16 @@
     <Content Include="Sprites\explosion3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Sprites\greenexplo.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\greenidle.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sprites\greenidle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\greenshot.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sprites\greensoldier1.png">
@@ -185,7 +195,16 @@
     <Content Include="Sprites\red4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Sprites\RedExplosion2.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\redidle.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sprites\redidle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sprites\redshot.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

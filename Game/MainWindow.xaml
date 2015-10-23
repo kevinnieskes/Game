@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="353" Width="529">
     <Grid Margin="0,0,2,0">
-        <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Width="294" Text=" War Simulation" FontSize="36" Margin="117,24,108,231"/>
-        <TextBox x:Name="ConnectionBox" HorizontalAlignment="Left" Height="97" Margin="96,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" Text="Please Select Host or Join Game before pressing start."/>
-        <Button x:Name="HostButton" Content="Host Game" HorizontalAlignment="Left" Margin="379,184,0,0" VerticalAlignment="Top" Width="90" Click="HostButton_Click" />
-        <Button x:Name="JoinButton" Content="Join Game" HorizontalAlignment="Left" Margin="379,222,0,0" VerticalAlignment="Top" Width="90" Click="JoinButton_Click"/>
-        <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Left" Margin="379,259,0,0" VerticalAlignment="Top" Width="90" Click="StartButton_Click" />
-        <Button x:Name="SinglePlayerButton" Content="Single Player" HorizontalAlignment="Left" Margin="201,107,0,0" VerticalAlignment="Top" Width="89" Click="SinglePlayerButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="379,138,0,0" TextWrapping="Wrap" Text="Multiplayer" VerticalAlignment="Top" Width="109" Height="30" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Width="294" Text=" War Simulation" FontSize="36" Margin="107,43,118,212"/>
+        <Button x:Name="Local" Content="Local" HorizontalAlignment="Left" Margin="283,197,0,0" VerticalAlignment="Top" Width="90" Click="LocalButton_Click" />
+        <Button x:Name="JoinButton" Content="Join Game" HorizontalAlignment="Left" Margin="283,233,0,0" VerticalAlignment="Top" Width="90" Click="JoinButton_Click"/>
+        <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Left" Margin="283,269,0,0" VerticalAlignment="Top" Width="90" Click="StartButton_Click" />
+        <Button x:Name="SinglePlayerButton" Content="Battle" HorizontalAlignment="Left" Margin="38,197,0,0" VerticalAlignment="Top" Width="89" Click="SinglePlayerButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="283,153,0,0" TextWrapping="Wrap" Text="Multiplayer" VerticalAlignment="Top" Width="109" Height="30" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Single Player" VerticalAlignment="Top" Margin="38,150,0,0" Width="154" Height="33" FontSize="20"/>
     </Grid>
 </Window>

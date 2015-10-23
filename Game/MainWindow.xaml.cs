@@ -25,25 +25,28 @@ namespace Game
             InitializeComponent();
         }
 
-        private void HostButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void JoinButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MultiplayerClient Multiplayer = new MultiplayerClient();
+            Multiplayer.Show();
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Window2 Multiplayer = new Window2();
+            Multiplayer.Show();
         }
 
         private void SinglePlayerButton_Click(object sender, RoutedEventArgs e)
         {
             Window3 SinglePlayer = new Window3();
             SinglePlayer.Show();
+        }
+
+        private void LocalButton_Click(object sender, RoutedEventArgs e)
+        {
+            LocalMultiplayer Local = new LocalMultiplayer();
+            Local.Show();
         }
 
 

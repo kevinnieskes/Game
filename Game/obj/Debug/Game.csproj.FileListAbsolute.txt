@@ -40,3 +40,11 @@ C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\obj\Debug\G
 C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
 C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\obj\Debug\LocalMultiplayer.baml
 C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\obj\Debug\LocalMultiplayer.g.cs
+C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\bin\Debug\Sprites\redidle.gif
+C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\bin\Debug\Sprites\redshot.gif
+C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\bin\Debug\Sprites\RedExplosion2.gif
+C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\obj\Debug\MultiplayerClient.baml
+C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\obj\Debug\MultiplayerClient.g.cs
+C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\bin\Debug\Sprites\greenexplo.gif
+C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\bin\Debug\Sprites\greenshot.gif
+C:\Users\KNieskes_be\Documents\Visual Studio 2013\Projects\Game\Game\bin\Debug\Sprites\greenidle.gif

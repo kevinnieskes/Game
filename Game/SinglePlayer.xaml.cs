@@ -14,8 +14,7 @@ using System.Windows.Shapes;
 
 namespace Game
 {
-
-    //BFT TODO: Break each function into smaller functions
+    //OLD TEXT BASED VERSION OF GAME
 
 
     /// <summary>
@@ -45,7 +44,6 @@ namespace Game
 
         private void ShootButton_Click(object sender, RoutedEventArgs e)
         {
-            //skirmish.DoAction(skirmish.Player1, skirmish.Player2, "Shoot");
             string EnemyHealth =  ("" + skirmish.DoAction(skirmish.Player1, skirmish.Player2, "Shoot"));
             int CurrentHealth = skirmish.Player1.Health();
             SinglePlayerBox.Text += "You shoot the enemy for " + ("" + skirmish.Player1.Shoot()) + " damage. \n" ;
@@ -65,7 +63,6 @@ namespace Game
 
         private void GrenadeButton_Click(object sender, RoutedEventArgs e)
         {
-            //skirmish.DoAction(skirmish.Player1, skirmish.Player2, "Shoot");
             if(skirmish.Player1.grenades == 0)
             {
                 SinglePlayerBox.Text += "Out of grenades! \n";
@@ -119,8 +116,6 @@ namespace Game
             NewEnemyButton.IsEnabled = false;
             
         }
-
-        //BFT TODO: Make function name a verb
         private void EnemyTurn()
         {
             string YourHealth = ("" + skirmish.DoAction(skirmish.Player2, skirmish.Player1, skirmish.badGuy.Fight()));

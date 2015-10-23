@@ -29,17 +29,21 @@ namespace Game
         {
             if(action == "Shoot")
             {
-                Defender.TakeDamage(Attacker.Shoot());
+                return Defender.TakeDamage(Attacker.Shoot());       
             }
             else if(action == "Throw")
             {
-                Defender.TakeDamage(Attacker.Throw());
+                return Defender.TakeDamage(Attacker.Throw());
             }
             else if (action == "Heal")
             {
                 Attacker.Heal();
             }
-            return Defender.Health();
+            else if (action == "Aim")
+            {
+                Attacker.Aim();
+            }
+            return 0;
         }
     }
 }

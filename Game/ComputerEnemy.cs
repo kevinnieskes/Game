@@ -50,6 +50,10 @@ namespace Game
                 {
                     action = "Throw";
                 }
+                else if (move <= 5 && move >= 1)
+                {
+                    action = "Aim";
+                }
                 
             }
             else if(id == 2)
@@ -60,9 +64,13 @@ namespace Game
                 {
                     action = "Shoot";
                 }
-                else if (move <= 54 && move >= 10)
+                else if (move <= 54 && move >= 30)
                 {
                     action = "Heal";
+                }
+                else if (move <= 29 && move >= 10)
+                {
+                    action = "Aim";
                 }
                 else if (move <= 9)
                 {
