@@ -27,26 +27,26 @@ namespace Game
 
         private void JoinButton_Click(object sender, RoutedEventArgs e)
         {
-            MultiplayerClient Multiplayer = new MultiplayerClient();
-            Multiplayer.Show();
+            Window2 MultiplayerClient = new Window2();
+            MultiplayerClient.Show();
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            Window2 Multiplayer = new Window2();
+            Window2 Multiplayer = new Window2('c');
             Multiplayer.Show();
         }
 
         private void SinglePlayerButton_Click(object sender, RoutedEventArgs e)
         {
-            Window3 SinglePlayer = new Window3();
+            Window2 SinglePlayer = new Window2(0);
             SinglePlayer.Show();
         }
 
         private void LocalButton_Click(object sender, RoutedEventArgs e)
         {
-            LocalMultiplayer Local = new LocalMultiplayer();
-            Local.Show();
+            Window2 local = new Window2("Local");
+            local.Show();
         }
 
 

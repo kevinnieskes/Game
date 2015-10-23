@@ -88,7 +88,7 @@ namespace Game
             Player2ShootAnimate();
             System.Threading.Thread.Sleep(900);
             Player2Image.Source = (new Uri(@"Sprites\greenidle.png", UriKind.Relative));
-            SinglePlayerBox.Text += "You shoot the enemy for " + ("" + skirmish.Player1.shootDam) + " damage. \n";
+            SinglePlayerBox.Text += "Player2 shot the enemy for " + ("" + skirmish.Player1.shootDam) + " damage. \n";
             Player2HP.Text = "Player2 Health: " + Player2HPHealth;
             if (Convert.ToInt32(Player2HPHealth) <= 0)
             {
@@ -105,7 +105,7 @@ namespace Game
             Player2GrenadeAnimate();
             System.Threading.Thread.Sleep(900);
             Player2Image.Source = (new Uri(@"Sprites\greenidle.png", UriKind.Relative));
-            SinglePlayerBox.Text += "You shoot the enemy for " + ("" + skirmish.Player1.shootDam) + " damage. \n";
+            SinglePlayerBox.Text += "Player2 shot the enemy for " + ("" + skirmish.Player1.shootDam) + " damage. \n";
             Player2HP.Text = "Player2 Health: " + Player2HPHealth;
             if (Convert.ToInt32(Player2HPHealth) <= 0)
             {
@@ -118,7 +118,7 @@ namespace Game
         private void HealButtonRight_Click(object sender, RoutedEventArgs e)
         {
             Player2HealAnimate();
-            SinglePlayerBox.Text += "You healed for " + skirmish.Player2.Heal() + "\n";
+            SinglePlayerBox.Text += "Player2 healed for " + skirmish.Player2.Heal() + "\n";
             Player2HP.Text = "Player2 Health: " + skirmish.Player2.Health();
             DoNextTurn(2);
         }

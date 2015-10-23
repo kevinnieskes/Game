@@ -17,6 +17,7 @@ using System.Net.Sockets;
 
 namespace Game
 {
+    //BFT TODO: Condense the code for all game modes (you should have one engine that accepts input from keyboard or network, not multiple sets of the same logic)
     /// <summary>
     /// Interaction logic for MultiplayerClient.xaml
     /// </summary>

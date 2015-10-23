@@ -17,7 +17,7 @@
             <Button x:Name="GrenadeButton" Content="Throw Grenade!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Click="GrenadeButton_Click" Canvas.Left="111" Canvas.Top="319" />
             <Button x:Name="HealButton" Content="Heal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="HealButton_Click" Canvas.Left="237" Canvas.Top="319"/>
             <TextBox x:Name="SinglePlayerBox" HorizontalAlignment="Left" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="337" Canvas.Top="244" Canvas.Left="19"/>
-            <Button x:Name="TurnButton"  Content="End Turn" Canvas.Left="385" Canvas.Top="270" Width="75" IsEnabled="False" Click="TurnButton_Click"/>
+            <Button x:Name="TurnButton"  Content="End Turn" Canvas.Left="385" Canvas.Top="244" Width="75" IsEnabled="False" Click="TurnButton_Click"/>
         </Canvas>
         <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="361" Margin="488,0,0,0" VerticalAlignment="Top" Width="227">
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="303" Margin="0,0,-4,0" VerticalAlignment="Top" Width="227">

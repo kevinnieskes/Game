@@ -8,16 +8,16 @@
                 <Image Height="234" Source="country-platform-preview.png" Stretch="Fill" Width="489"/>
                 <MediaElement Name ="Player1Image" Height="46" Source="" Width="68" Canvas.Left="67" Canvas.Top="161"/>
                 <MediaElement Name ="Player2Image" Source= "" Height="53" Canvas.Left="391" Canvas.Top="150" Width="72"/>
-                <TextBlock x:Name="YourHP" Canvas.Left="43" TextWrapping="Wrap" Text="Your Health:" Canvas.Top="10" Width="90" Height="17" FontWeight="Bold" FontStyle="Italic"/>
-                <TextBlock x:Name="EnemyHP" Canvas.Left="343" TextWrapping="Wrap" Text="Enemy Health:" Canvas.Top="11" Width="111" FontWeight="Bold" FontStyle="Italic"/>
-                <TextBlock x:Name="YourGrenades" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Grenades:" VerticalAlignment="Top" Width="66" Canvas.Left="43" Canvas.Top="32" FontWeight="Bold"/>
-                <TextBlock x:Name="EnemyGrenades" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Grenades:" VerticalAlignment="Top" Width="66" Canvas.Left="343" Canvas.Top="32" FontWeight="Bold"/>
+                <TextBlock x:Name="YourHP" Canvas.Left="43" TextWrapping="Wrap" Text="Your Health:" Canvas.Top="10" Width="130" Height="17" FontWeight="Bold" FontStyle="Italic"/>
+                <TextBlock x:Name="EnemyHP" Canvas.Left="343" TextWrapping="Wrap" Text="Enemy Health:" Canvas.Top="11" Width="136" FontWeight="Bold" FontStyle="Italic"/>
+                <TextBlock x:Name="YourGrenades" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Grenades:" VerticalAlignment="Top" Width="79" Canvas.Left="43" Canvas.Top="32" FontWeight="Bold"/>
+                <TextBlock x:Name="EnemyGrenades" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Grenades:" VerticalAlignment="Top" Width="75" Canvas.Left="343" Canvas.Top="32" FontWeight="Bold"/>
             </Canvas>
             <Button x:Name="ShootButton" Content="Shoot!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="ShootButton_Click" Canvas.Left="19" Canvas.Top="319"/>
             <Button x:Name="GrenadeButton" Content="Throw Grenade!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Click="GrenadeButton_Click" Canvas.Left="111" Canvas.Top="319" />
             <Button x:Name="HealButton" Content="Heal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="HealButton_Click" Canvas.Left="237" Canvas.Top="319"/>
-            <TextBox x:Name="SinglePlayerBox" HorizontalAlignment="Left" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="337" Canvas.Top="244" Canvas.Left="19"/>
-            <Button x:Name="TurnButton"  Content="End Turn" Canvas.Left="385" Canvas.Top="270" Width="75" IsEnabled="False" Click="TurnButton_Click"/>
+            <TextBox x:Name="SinglePlayerBox" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="337" Canvas.Top="244" Canvas.Left="19"/>
+            <Button x:Name="TurnButton"  Content="End Turn" Canvas.Left="381" Canvas.Top="244" Width="75" IsEnabled="False" Click="TurnButton_Click"/>
         </Canvas>
         <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="361" Margin="488,0,0,0" VerticalAlignment="Top" Width="227">
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="303" Margin="0,0,-4,0" VerticalAlignment="Top" Width="227">
